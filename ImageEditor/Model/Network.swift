@@ -16,6 +16,7 @@ protocol ImageDataDelegate {
 struct NetworkHandler{
     
     var imageDelegate: ImageDataDelegate?
+    
     let urlString = "https://eulerity-hackathon.appspot.com/image"
     func GetAllImages()  {
 
