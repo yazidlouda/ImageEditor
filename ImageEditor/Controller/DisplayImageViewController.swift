@@ -18,11 +18,8 @@ class DisplayImageViewController: UIViewController, ImageDataDelegate , UICollec
      var arr : [String] = []
     var image : UIImage?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-
-        // arr.count
         Model.imageModel.count
     }
-    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! DisplayImageCollectionViewCell
@@ -55,7 +52,4 @@ class DisplayImageViewController: UIViewController, ImageDataDelegate , UICollec
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
     }
-    
-
-
 }

@@ -12,17 +12,11 @@ import Alamofire
 protocol ImageDataDelegate {
     func didUpdateImages(allImages : [ImageModel])
 }
-
 struct NetworkHandler{
-    
     var imageDelegate: ImageDataDelegate?
-    
     let urlString = "https://eulerity-hackathon.appspot.com/image"
     func GetAllImages()  {
-
         performRequest(urlString: urlString)
-        
-       
     }
     func performRequest(urlString: String) {
         // create URL
@@ -50,27 +44,18 @@ struct NetworkHandler{
         let decoder = JSONDecoder()
         do{
            let decodedData = try decoder.decode([Image].self, from: ImageData)
-            
             for i in 0...decodedData.count - 1{
                 let url = decodedData[i].url
                 let created = decodedData[i].created
                 let updated = decodedData[i].updated
                  images.append(ImageModel(url: url!, created: created!, updated: updated!))
             }
-            
-            
-            
-            
             return images
-            
         } catch{
             print("failed with error:",error)
             
             return nil
         }
-        
     }
-   
-    
-    
+
 }

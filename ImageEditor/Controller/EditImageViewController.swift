@@ -10,11 +10,10 @@ import SDWebImage
 import CoreImage
 import Alamofire
 //import SwiftyJSON
-protocol UpdatedImageDelegate{
-    func didUpdateUpdatedImage(image: Image)
-}
+
 class EditImageViewController: UIViewController {
-    var updatedImageDelegate: UpdatedImageDelegate?
+    @IBOutlet weak var smallView: UIView!
+    
     struct Filter{
         let filterName: String
         var filterEffectValue: Any?
@@ -48,8 +47,6 @@ class EditImageViewController: UIViewController {
            let cgiImageResult = context.createCGImage(output, from: output.extent){
             filteredImage = UIImage(cgImage: cgiImageResult)
         }
-      
-        
         return filteredImage
     }
     
@@ -61,53 +58,43 @@ class EditImageViewController: UIViewController {
     var file = "photo1"
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        smallView.layer.cornerRadius = 10
         image.sd_setImage(with: URL(string: (currentImage?.url)!), placeholderImage:UIImage(named: "image1"))
         originalImage = image.image
         // Do any additional setup after loading the view.
     }
-    
-
     @IBAction func applySepia(_ sender: Any) {
-        
         guard let imageView = image.image else{
             return
         }
-        
         image.image = applyFilterTo(image: imageView, filterEffect: Filter(filterName: "CISepiaTone",filterEffectValue: 0.70 , filterEffectValueName: kCIInputIntensityKey))
     }
     @IBAction func applyTransferEffect(_ sender: Any) {
         guard let imageView = image.image else{
             return
         }
-        
         image.image = applyFilterTo(image: imageView, filterEffect: Filter(filterName: "CIPhotoEffectProcess",filterEffectValue: nil , filterEffectValueName: nil))
-        
     }
     @IBAction func applyBlackEffect(_ sender: Any) {
         guard let imageView = image.image else{
             return
         }
-      
         image.image = applyFilterTo(image: imageView, filterEffect: Filter(filterName: "CIPhotoEffectNoir",filterEffectValue: nil , filterEffectValueName: nil))
     }
     @IBAction func applyBlur(_ sender: Any) {
         guard let imageView = image.image else{
             return
         }
-        
         image.image = applyFilterTo(image: imageView, filterEffect: Filter(filterName: "CIGaussianBlur",filterEffectValue: 8.0 , filterEffectValueName: kCIInputRadiusKey))
     }
     @IBAction func clearFilters(_ sender: Any) {
         image.image = originalImage
     }
-    
     @IBAction func saveAndSendImage(_ sender: Any) {
-        uploadImage(appid: email, fileName: file, image: image.image!, originalurl: currentImage!.url)
+        uploadImage(image: image.image!)
     }
-    
-    func uploadImage(appid: String, fileName: String, image: UIImage, originalurl: String) {
-        let url =  "https://eulerity-hackathon.appspot.com/upload"
+    func uploadImage( image: UIImage) {
+       let url = "https://eulerity-hackathon.appspot.com/_ah/upload/AMmfu6aqB5GMdgY4bFSFU2TTAQ5lD1SXmIsMvZ1Jjvnb5HPn1mWgt2i0tvORSQIhC0elt8jq85vpYZtsbzZ_3SHlmOuDCzl_aL4ANEQHUfFWjaeXoDbl7ueIcn3hhtXIoD3sX9PUQgOtBOpyHQKnJ_H8S64idIunpVGtrC7eqzq6YuabWYYO-oWPLW3j55SFbR2hbtjvpmo3q9EGeVaWY1lzTG-Vx39r7g/ALBNUaYAAAAAYYr9ZvPPhJYdNcBMl4aMTYdLvU39DCxT"
         guard let endpoint = URL(string: url) else {
                     print("Error creating endpoint")
                     return
@@ -119,38 +106,20 @@ class EditImageViewController: UIViewController {
         let boundary = "Boundary-\(UUID().uuidString)"
 
         // Set Content-Type Header to multipart/form-data, this is equivalent to submitting form data with file upload in a web browser
-        // And the boundary is also set here
         urlRequest.setValue("multipart/form-data; boundary=\(boundary)", forHTTPHeaderField: "Content-Type")
         let mimeType = "image/jpg"
-
-        let params: [String : String?] = ["appid" : "yazidlouda15@gmail.com",
-                                          "url": currentImage?.url]
-         //let body = NSMutableData()
-
-
-
-
+        let params: [String : String?] = ["appid" : "yazidlouda15@gmail.com", "url": currentImage?.url]
         let session = URLSession.shared
-
-
-
-
-
-
         let filename = "image1"
         var data = Data()
         for (key, value) in params{
             data.append("Content-Disposition: form-data; name=\"\(key)\"r\n\r\n".data(using: .utf8)!)
             data.append("\(value ?? "")\r\n".data(using: .utf8)!)
         }
-
         // Add the image data to the raw http request data
         data.append("\r\n--\(boundary)\r\n".data(using: .utf8)!)
-
         data.append("Content-Type: image/png\r\n\r\n".data(using: .utf8)!)
         data.append(image.jpegData(compressionQuality: 1.0)!)
-        data.append("Original URL : \(originalurl)\r\n".data(using: .utf8)!)
-
         data.append("Content-Disposition: form-data; name=\"image\"; filename=\"\(filename)\"\r\n".data(using: .utf8)!)
         data.append("Content-Type: \(mimeType)\r\n\r\n".data(using: .utf8)!)
         data.append(data)
@@ -158,7 +127,7 @@ class EditImageViewController: UIViewController {
         data.append(" — ".appending(boundary.appending(" — ")).data(using: .utf8)!)
 
 
-        // Send a POST request to the URL, with the data we created earlier
+        // Send a POST request to the URL, with the data we created
         session.uploadTask(with: urlRequest, from: data, completionHandler: { responseData, response, error in
             if error == nil {
                 let jsonData = try? JSONSerialization.jsonObject(with: responseData!, options: .allowFragments)
