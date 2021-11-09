@@ -8,26 +8,26 @@
 import UIKit
 import SDWebImage
 class DisplayImageViewController: UIViewController, ImageDataDelegate , UICollectionViewDelegate, UICollectionViewDataSource{
-    
-    func didUpdateImages(allImages: [Image]) {
+    func didUpdateImages(allImages: [ImageModel]) {
         DispatchQueue.main.async {
-            Model.images = allImages
+            Model.imageModel = allImages
             self.imageCollectionView.reloadData()
         }
     }
     
+     var arr : [String] = []
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        print("images = ", Model.images.count)
-//        return Model.images.count
-        Model.images.count
+
+        // arr.count
+        Model.imageModel.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ImageCell", for: indexPath) as! DisplayImageCollectionViewCell
-        let sp = Model.images[indexPath.row]
-        cell.image.sd_setImage(with: URL(string: sp.url!), placeholderImage:UIImage(named: "image1"))
-        cell.name.text = "Yazid"
+        let sp = Model.imageModel[indexPath.row]
+        cell.image.sd_setImage(with: URL(string: sp.url), placeholderImage:UIImage(named: "image1"))
         cell.layer.cornerRadius = 15
         cell.image.layer.cornerRadius = 15
         return cell
@@ -41,6 +41,7 @@ class DisplayImageViewController: UIViewController, ImageDataDelegate , UICollec
         super.viewDidLoad()
         imageCollectionView.reloadData()
         networkHandler.imageDelegate = self
+        print("Images",Model.imageModel.count)
         networkHandler.GetAllImages()
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self

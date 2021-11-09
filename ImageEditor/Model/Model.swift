@@ -10,5 +10,6 @@ import Foundation
 class Model{
     
     static var images:[Image] = [Image]()
-    
+    static var urls: [String]?
+    static var imageModel: [ImageModel] = [ImageModel]()
 }

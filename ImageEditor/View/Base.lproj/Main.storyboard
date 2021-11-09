@@ -12,7 +12,7 @@
         <!--Display Image View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="DisplayImageViewController" customModule="ImageEditor" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DisplayImageViewController" id="BYZ-38-t0r" customClass="DisplayImageViewController" customModule="ImageEditor" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -37,24 +37,16 @@
                                                     <rect key="frame" x="0.0" y="0.0" width="200" height="190"/>
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
-                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kF6-qS-Muv">
-                                                            <rect key="frame" x="8" y="12" width="171" height="54"/>
+                                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" restorationIdentifier="DisplayImageViewController" translatesAutoresizingMaskIntoConstraints="NO" id="kF6-qS-Muv">
+                                                            <rect key="frame" x="8" y="12" width="184" height="170"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yazid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mNC-f0-BqA">
-                                                            <rect key="frame" x="72" y="74" width="41" height="21"/>
-                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
                                                 </collectionViewCellContentView>
                                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <size key="customSize" width="200" height="190"/>
                                                 <connections>
                                                     <outlet property="image" destination="kF6-qS-Muv" id="Izs-wi-P0U"/>
-                                                    <outlet property="name" destination="mNC-f0-BqA" id="ttQ-YN-OI9"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>

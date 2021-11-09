@@ -7,11 +7,6 @@
 
 import Foundation
 
-struct Images: Codable {
-    let images: [Image]
-}
-
-
 struct Image: Codable {
     let url: String?
     let created: String?
