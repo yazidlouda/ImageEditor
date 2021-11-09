@@ -1,4 +1,4 @@
 # ImageEditor
 
 
-![DataTables](/ImageEditor/Assets.xcassets/image6.imageset)
+![i](/ImageEditor/Assets.xcassets/image6/image6.png)
