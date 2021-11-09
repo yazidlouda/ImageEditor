@@ -1,4 +1,14 @@
 # ImageEditor
+
+##Technologies used
+--
+ - Swift.
+ - RESTful API.
+ - Alamofire.
+ - SDWebImage.
+ - MVC Pattern.
+ - Cocoa pods.
+
 ![ScreenShots](ImageEditor/Assets.xcassets/image6.imageset/image1.png)
 ![ScreenShots](ImageEditor/Assets.xcassets/image2.imageset/image2.png)
 ![ScreenShots](ImageEditor/Assets.xcassets/image3.imageset/image3.png)
