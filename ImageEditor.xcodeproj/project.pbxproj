@@ -19,6 +19,7 @@
 		F4582EA02739BBA8001FA919 /* DisplayImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4582E9F2739BBA8001FA919 /* DisplayImageViewController.swift */; };
 		F4582EA32739BCA3001FA919 /* DisplayImageCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4582EA22739BCA3001FA919 /* DisplayImageCollectionViewCell.swift */; };
 		F4582EA6273A1DE2001FA919 /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4582EA5273A1DE2001FA919 /* ImageModel.swift */; };
+		F4582EB4273A37CF001FA919 /* EditImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4582EB3273A37CF001FA919 /* EditImageViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		F4582E9F2739BBA8001FA919 /* DisplayImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayImageViewController.swift; sourceTree = "<group>"; };
 		F4582EA22739BCA3001FA919 /* DisplayImageCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayImageCollectionViewCell.swift; sourceTree = "<group>"; };
 		F4582EA5273A1DE2001FA919 /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		F4582EB3273A37CF001FA919 /* EditImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditImageViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			children = (
 				F4582E9F2739BBA8001FA919 /* DisplayImageViewController.swift */,
 				F4582EA22739BCA3001FA919 /* DisplayImageCollectionViewCell.swift */,
+				F4582EB3273A37CF001FA919 /* EditImageViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -246,6 +249,7 @@
 			files = (
 				F4582E9D2739BB78001FA919 /* Model.swift in Sources */,
 				F4582E782739B9A0001FA919 /* AppDelegate.swift in Sources */,
+				F4582EB4273A37CF001FA919 /* EditImageViewController.swift in Sources */,
 				F4582E9A2739BB6A001FA919 /* Image.swift in Sources */,
 				F4582E7A2739B9A0001FA919 /* SceneDelegate.swift in Sources */,
 				F4582EA02739BBA8001FA919 /* DisplayImageViewController.swift in Sources */,

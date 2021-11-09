@@ -14,9 +14,9 @@ class DisplayImageViewController: UIViewController, ImageDataDelegate , UICollec
             self.imageCollectionView.reloadData()
         }
     }
-    
+    var row:Int?
      var arr : [String] = []
-    
+    var image : UIImage?
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 
         // arr.count
@@ -32,8 +32,17 @@ class DisplayImageViewController: UIViewController, ImageDataDelegate , UICollec
         cell.image.layer.cornerRadius = 15
         return cell
     }
-    
-   
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        row = indexPath.row
+       
+        self.performSegue(withIdentifier: "showImage", sender: self)
+    }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showImage"{
+            let destination = segue.destination as! EditImageViewController
+            destination.currentImage = Model.imageModel[row!]
+        }
+    }
     
     @IBOutlet weak var imageCollectionView: UICollectionView!
     var networkHandler = NetworkHandler()
@@ -41,7 +50,7 @@ class DisplayImageViewController: UIViewController, ImageDataDelegate , UICollec
         super.viewDidLoad()
         imageCollectionView.reloadData()
         networkHandler.imageDelegate = self
-        print("Images",Model.imageModel.count)
+        //print("Images",Model.imageModel.count)
         networkHandler.GetAllImages()
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self
