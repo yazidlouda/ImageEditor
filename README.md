@@ -1,4 +1,4 @@
 # ImageEditor
 
 
-![DataTables](/ImageEditor/Assets.xcassets/mage2.imageset/image2.PNG)
+![DataTables](/ImageEditor/Assets.xcassets/image2.imageset/image2.PNG)
