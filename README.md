@@ -1,5 +1,5 @@
 # ImageEditor
-
+#### ImageEditor is an Application where user can view pictures and modify them by adding filters. 
 ##Technologies used
 --
  - Swift.
