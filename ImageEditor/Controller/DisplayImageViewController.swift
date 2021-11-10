@@ -47,7 +47,7 @@ class DisplayImageViewController: UIViewController, ImageDataDelegate , UICollec
         super.viewDidLoad()
         imageCollectionView.reloadData()
         networkHandler.imageDelegate = self
-        //print("Images",Model.imageModel.count)
+        
         networkHandler.GetAllImages()
         imageCollectionView.delegate = self
         imageCollectionView.dataSource = self

@@ -11,9 +11,16 @@ import CoreImage
 import Alamofire
 //import SwiftyJSON
 
-class EditImageViewController: UIViewController {
-    @IBOutlet weak var smallView: UIView!
+class EditImageViewController: UIViewController,ImageUploadURLDataDelegate {
+    func didUpdateImageUploadURLs(allImages: ImageUploadURL) {
+        DispatchQueue.main.async {
+            Model.imageUploadURL = [allImages]
+            
+        }
+    }
     
+    @IBOutlet weak var smallView: UIView!
+    var network = NetworkHandler()
     struct Filter{
         let filterName: String
         var filterEffectValue: Any?
@@ -56,8 +63,16 @@ class EditImageViewController: UIViewController {
     var myImage: Image?
     var email = "yazidlouda15@gmail.com"
     var file = "photo1"
+    var imageUploadURL = ""
     override func viewDidLoad() {
         super.viewDidLoad()
+        network.imageUploadURLDelegate = self
+        network.GetAllImages()
+        for i in Model.imageUploadURL{
+            imageUploadURL = i.url!
+        }
+        
+        //print("Model", imageUploadURL)
         smallView.layer.cornerRadius = 10
         image.sd_setImage(with: URL(string: (currentImage?.url)!), placeholderImage:UIImage(named: "image1"))
         originalImage = image.image
@@ -93,8 +108,10 @@ class EditImageViewController: UIViewController {
     @IBAction func saveAndSendImage(_ sender: Any) {
         uploadImage(image: image.image!)
     }
+    
     func uploadImage( image: UIImage) {
-       let url = "https://eulerity-hackathon.appspot.com/_ah/upload/AMmfu6aqB5GMdgY4bFSFU2TTAQ5lD1SXmIsMvZ1Jjvnb5HPn1mWgt2i0tvORSQIhC0elt8jq85vpYZtsbzZ_3SHlmOuDCzl_aL4ANEQHUfFWjaeXoDbl7ueIcn3hhtXIoD3sX9PUQgOtBOpyHQKnJ_H8S64idIunpVGtrC7eqzq6YuabWYYO-oWPLW3j55SFbR2hbtjvpmo3q9EGeVaWY1lzTG-Vx39r7g/ALBNUaYAAAAAYYr9ZvPPhJYdNcBMl4aMTYdLvU39DCxT"
+       
+       let url = imageUploadURL
         guard let endpoint = URL(string: url) else {
                     print("Error creating endpoint")
                     return
