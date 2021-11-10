@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		22CF34DE2DB633834FF517D1 /* Pods_ImageEditor.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 36D295B5E30213158F8548FE /* Pods_ImageEditor.framework */; };
+		F42BE805273C5AD2006BB0B0 /* ImageUploadURL.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BE804273C5AD2006BB0B0 /* ImageUploadURL.swift */; };
+		F42BE808273C5B4F006BB0B0 /* ImageUpload.swift in Sources */ = {isa = PBXBuildFile; fileRef = F42BE807273C5B4F006BB0B0 /* ImageUpload.swift */; };
 		F4582E782739B9A0001FA919 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4582E772739B9A0001FA919 /* AppDelegate.swift */; };
 		F4582E7A2739B9A0001FA919 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4582E792739B9A0001FA919 /* SceneDelegate.swift */; };
 		F4582E7F2739B9A0001FA919 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F4582E7D2739B9A0001FA919 /* Main.storyboard */; };
@@ -26,6 +28,8 @@
 		0BEFABC91CC46CB350DD973A /* Pods-ImageEditor.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageEditor.release.xcconfig"; path = "Target Support Files/Pods-ImageEditor/Pods-ImageEditor.release.xcconfig"; sourceTree = "<group>"; };
 		36D295B5E30213158F8548FE /* Pods_ImageEditor.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ImageEditor.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		53DC07F5687DA21EEA277EE9 /* Pods-ImageEditor.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImageEditor.debug.xcconfig"; path = "Target Support Files/Pods-ImageEditor/Pods-ImageEditor.debug.xcconfig"; sourceTree = "<group>"; };
+		F42BE804273C5AD2006BB0B0 /* ImageUploadURL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUploadURL.swift; sourceTree = "<group>"; };
+		F42BE807273C5B4F006BB0B0 /* ImageUpload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUpload.swift; sourceTree = "<group>"; };
 		F4582E742739B9A0001FA919 /* ImageEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImageEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F4582E772739B9A0001FA919 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F4582E792739B9A0001FA919 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -129,6 +133,8 @@
 				F4582E992739BB6A001FA919 /* Image.swift */,
 				F4582E9C2739BB78001FA919 /* Model.swift */,
 				F4582EA5273A1DE2001FA919 /* ImageModel.swift */,
+				F42BE804273C5AD2006BB0B0 /* ImageUploadURL.swift */,
+				F42BE807273C5B4F006BB0B0 /* ImageUpload.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -249,7 +255,9 @@
 			files = (
 				F4582E9D2739BB78001FA919 /* Model.swift in Sources */,
 				F4582E782739B9A0001FA919 /* AppDelegate.swift in Sources */,
+				F42BE805273C5AD2006BB0B0 /* ImageUploadURL.swift in Sources */,
 				F4582EB4273A37CF001FA919 /* EditImageViewController.swift in Sources */,
+				F42BE808273C5B4F006BB0B0 /* ImageUpload.swift in Sources */,
 				F4582E9A2739BB6A001FA919 /* Image.swift in Sources */,
 				F4582E7A2739B9A0001FA919 /* SceneDelegate.swift in Sources */,
 				F4582EA02739BBA8001FA919 /* DisplayImageViewController.swift in Sources */,
