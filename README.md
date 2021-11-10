@@ -4,7 +4,7 @@
 --
  - Swift.
  - RESTful API.
- - Alamofire.
+ - URLSession.
  - SDWebImage.
  - MVC Pattern.
  - Cocoa pods.
