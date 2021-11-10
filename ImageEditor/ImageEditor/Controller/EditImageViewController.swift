@@ -9,7 +9,6 @@ import UIKit
 import SDWebImage
 import CoreImage
 
-
 class EditImageViewController: UIViewController,ImageUploadURLDataDelegate {
     func didUpdateImageUploadURLs(allImages: ImageUploadURL) {
         DispatchQueue.main.async {
@@ -110,7 +109,9 @@ class EditImageViewController: UIViewController,ImageUploadURLDataDelegate {
     
     func uploadImage( image: UIImage) {
        
+
        var url = imageUploadURL
+
         guard let endpoint = URL(string: url) else {
                     url = "http://eulerity-hackathon.appspot.com/_ah/upload/AMmfu6ZrjCxLg0TuGnRZA8DI00NDpGuMUBAvo4qp52gWPDtKLWo91Eu7spHMWqWFae2spUvwkba7ySBCt0J2e5_v7sXjcYa-uDFSOllnEzYbDi6bOD_hofndAPws0rxjQAEvxg4twnQW3Etb3ovRYDNK9mJejHH5U5cdj33K2ne_Mv9mUc0W3MCe3jt-rCL5dX0XvQusfZAZihq5apyF6Jt0rbsKubi-Fg/ALBNUaYAAAAAYYw2_OGYTXyn-9sWkPej7hECUhiTTeUx/"
                     return
